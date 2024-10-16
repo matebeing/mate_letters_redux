@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar"
 import { useParams } from 'react-router-dom';
 
 const Letter = () => {
-    const letters = useSelector(state => state.letterCreate.value);
+    const letters = useSelector(state => state.letter.value);
     const { id } = useParams();
 
     return (

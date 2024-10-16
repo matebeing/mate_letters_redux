@@ -4,7 +4,7 @@ import LetterCard from "./components/LetterCard";
 import Navbar from "./components/Navbar";
 
 const App = () => {
-    const letters = useSelector(state => state.letterCreate.value);
+    const letters = useSelector(state => state.letter.value);
 
     console.log(letters)
     return (

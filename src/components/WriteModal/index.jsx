@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { setVisibility } from  '../../slices/modalSlice.js'
-import { createLetter } from '../../slices/letterCreateSlice.js';
+import { Creators } from "../../store/reducers/letter";
+
 
 const Modal = () => {
+    const letters = useSelector(state => state.letter.value);
+
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -30,7 +32,7 @@ const Modal = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log('Form data:', formData);
-      dispatch(createLetter(formData));
+      dispatch(Creators.create(formData));
       toggleModal()
   
       setFormData({
@@ -39,6 +41,9 @@ const Modal = () => {
         remetente: '',
         destinatario: '',
       });
+
+      console.log(letters)
+
   
     };
   

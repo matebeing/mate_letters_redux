@@ -3,15 +3,14 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import Letter from './pages/Letter'
 import './index.css'
-import { configureStore } from "@reduxjs/toolkit";
-import { Provider } from "react-redux";
-import letterCreateReducer from './slices/letterCreateSlice.js'
-import modalSliceReducer from './slices/modalSlice.js'
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
+import { Provider } from "react-redux";
+import {store} from './store/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -24,13 +23,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-
-const store = configureStore({
-  reducer: {
-    letterCreate: letterCreateReducer,
-    setVisibility: modalSliceReducer
-  }
-})
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
